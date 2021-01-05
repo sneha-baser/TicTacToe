@@ -1,11 +1,14 @@
 package com.example.tictactoe;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -29,6 +32,7 @@ public class MainActivity<btn2> extends AppCompatActivity  implements View.OnCli
     Button btn9 ;
     Button rstbtn;
     TextView txtup ;
+    AlertDialog alertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -151,18 +155,37 @@ public class MainActivity<btn2> extends AppCompatActivity  implements View.OnCli
     }
 
     private void checkWinner() {
+
         int i;
         //to check if horizontal match for winner
         for(i=0;i<=2;i++){
             if(board_status[i][0]==board_status[i][1] && board_status[i][1]==board_status[i][2]){
                 if(board_status[i][0]==1) {
                     updateDisplay("Player X win");
+                     alertDialog =  new AlertDialog.Builder(this).setTitle("Player X win").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Toast.makeText(MainActivity.this,"Start Again",Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                            .create();
                     disablefun();
+
+
                     break;
                 }
                 else if(board_status[i][0]==0) {
                     updateDisplay("Player O win");
+                     alertDialog =  new AlertDialog.Builder(this).setTitle("Player O win").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Toast.makeText(MainActivity.this,"Start Again",Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                            .create();
+
                     disablefun();
+
                     break;
                 }
             }
@@ -172,11 +195,26 @@ public class MainActivity<btn2> extends AppCompatActivity  implements View.OnCli
             if(board_status[0][i]==board_status[1][i] && board_status[1][i]==board_status[2][i]){
                 if(board_status[0][i]==1) {
                     updateDisplay("Player X win");
+                     alertDialog =  new AlertDialog.Builder(this).setTitle("Player X win").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Toast.makeText(MainActivity.this,"Start Again",Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                            .create();
                     disablefun();
+
                     break;
                 }
                 else if(board_status[0][i]==0) {
                     updateDisplay("Player O win");
+                     alertDialog =  new AlertDialog.Builder(this).setTitle("Player O win").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            Toast.makeText(MainActivity.this,"Start Again",Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                            .create();
                     disablefun();
                     break;
                 }
@@ -186,11 +224,25 @@ public class MainActivity<btn2> extends AppCompatActivity  implements View.OnCli
         if(board_status[0][0]==board_status[1][1] && board_status[1][1]==board_status[2][2]) {
             if(board_status[0][0]==1) {
                 updateDisplay("Player X win");
+                 alertDialog =  new AlertDialog.Builder(this).setTitle("Player X win").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(MainActivity.this,"Start Again",Toast.LENGTH_SHORT).show();
+                    }
+                })
+                        .create();
                 disablefun();
 
             }
             else if(board_status[0][0]==0) {
                 updateDisplay("Player O win");
+                 alertDialog =  new AlertDialog.Builder(this).setTitle("Player O win").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(MainActivity.this,"Start Again",Toast.LENGTH_SHORT).show();
+                    }
+                })
+                        .create();
                 disablefun();
 
 
@@ -200,11 +252,25 @@ public class MainActivity<btn2> extends AppCompatActivity  implements View.OnCli
         if(board_status[0][2]==board_status[1][1] && board_status[1][1]==board_status[2][0]) {
             if(board_status[0][2]==1) {
                 updateDisplay("Player X win");
+                 alertDialog =  new AlertDialog.Builder(this).setTitle("Player X win").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(MainActivity.this,"Start Again",Toast.LENGTH_SHORT).show();
+                    }
+                })
+                        .create();
                 disablefun();
 
             }
             else if(board_status[0][2]==0) {
                 updateDisplay("Player O win");
+                 alertDialog =  new AlertDialog.Builder(this).setTitle("Player O win").setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(MainActivity.this,"Start Again",Toast.LENGTH_SHORT).show();
+                    }
+                })
+                        .create();
                 disablefun();
 
 
@@ -226,6 +292,7 @@ public class MainActivity<btn2> extends AppCompatActivity  implements View.OnCli
 
 
         }
+        alertDialog.show();
 
     }
 
